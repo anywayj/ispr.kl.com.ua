@@ -6,6 +6,10 @@ jQuery(function ($) {
         $('#main-slider.carousel').carousel({
             interval: 8000
         });
+        $('#w0-collapse').on('click', 'li.active', function(e) {
+            e.preventDefault();
+            return false;
+        });
     });
 
     $('.window-height').height($(window).height());
@@ -21,7 +25,7 @@ jQuery(function ($) {
 
 
     // portfolio filter
-    $(window).load(function () {
+    /*$(window).load(function () {
         'use strict';
         var $portfolio_selectors = $('.portfolio-filter >li>a');
         var $portfolio = $('.portfolio-items');
@@ -40,7 +44,7 @@ jQuery(function ($) {
             });
             return false;
         });
-    });
+    });*/
 
 
     // Contact form
@@ -59,7 +63,7 @@ jQuery(function ($) {
         });
     });
 
-    $('.testimonial-slider').owlCarousel({
+    /*$('.testimonial-slider').owlCarousel({
         margin: 30,
         responsive: {
             0: {
@@ -72,10 +76,10 @@ jQuery(function ($) {
                 items: 3
             }
         }
-    });
+    });*/
 
     //goto top
-    $('.gototop').click(function (event) {
+    /*$('.gototop').click(function (event) {
         event.preventDefault();
         $('html, body').animate({
             scrollTop: $("body").offset().top
@@ -85,5 +89,5 @@ jQuery(function ($) {
     //Pretty Photo
     $("a[rel^='prettyPhoto']").prettyPhoto({
         social_tools: false
-    });
+    });*/
 });

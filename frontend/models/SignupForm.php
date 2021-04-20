@@ -50,7 +50,7 @@ class SignupForm extends Model
         }
  
         $user = new User();
-        $studone = Students::find()->select(['Student_id','Student_surname'])->all();
+        $studone = Students::find()->select(['Student_id', 'Student_surname'])->all();
         $login = $this->username;
         $surname = $this->Student_surname;
         foreach ($studone as $k) {
@@ -70,7 +70,7 @@ class SignupForm extends Model
             return $user->save() ? $user : null;
         } 
 
-        Yii::$app->session->setFlash('error','Виникла помилка при реєстрації!');  
+        Yii::$app->session->setFlash('error','Виникла помилка при реєстрації! Перевiрте будь ласка номер «Номер студентського» або «Прізвище»');
     }
         
     public function attributeLabels()

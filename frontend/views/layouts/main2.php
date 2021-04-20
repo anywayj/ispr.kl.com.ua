@@ -20,8 +20,8 @@ use common\widgets\LoginWidget;
 use common\widgets\SignupWidget;
 use frontend\widgets\LoginFormWidget;
 
-MyAsset::register($this);
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -6,8 +6,6 @@ use frontend\assets\AppAsset;
 use frontend\assets\MyAsset;
 use miloschuman\highcharts\Highcharts;
 
-//MyAsset::register($this);
-//AppAsset::register($this);
 $this->title = 'Головна';
 ?>
     <div class="header">
@@ -82,12 +80,12 @@ $this->title = 'Головна';
                                     <li><a href="#">Сесія</a></li>
                                     <li><a href="#">Олімпіади</a></li>
                                     <li><a href="#">Позанавчальна діяльність</a></li>
-                                <?php if (!Yii::$app->user->isGuest): ?>
-                                    <li><a href="/site/grants"><b style="color: red;">Досягнення студентiв</b></a></li>
-                                <?php endif; ?>
-                                <?php if (Yii::$app->user->can('canAdmin')): ?>
-                                    <li><a href="/site/quality"><b style="color: red;">Якiсть освiти</b></a></li>
-                                <?php endif; ?>
+                                <?php if (!Yii::$app->user->isGuest) { ?>
+                                    <li><a href="/site/grants">Досягнення студентiв</a></li>
+                                <?php }?>
+                                <?php if (Yii::$app->user->can('canAdmin')) { ?>
+                                    <li><a href="/site/quality">Якiсть освiти</a></li>
+                                <?php } ?>
                                 </ul>
                             </div>
                         </div>

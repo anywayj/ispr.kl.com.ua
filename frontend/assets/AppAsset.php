@@ -20,11 +20,8 @@ class AppAsset extends AssetBundle
         'css/icomoon.css',
         'css/test6.css',
         'css/main66.css',
-       // 'css/main1.css',
         'css/responsive29.css',
         //'css/style-signup1.css',
-
-
     ];
     public $js = [
         'js/java4.js',
@@ -36,8 +33,6 @@ class AppAsset extends AssetBundle
         'js/jquery.isotope.min.js',
         'js/main1.js',
         'js/test.js',
-
-  
     ];
     public $depends = [
         'yii\web\YiiAsset',

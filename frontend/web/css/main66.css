@@ -332,7 +332,6 @@ body>section {
 
 .center {
     text-align: center;
-    /* padding-bottom: 55px; */
 }
 
 .scaleIn {
@@ -403,10 +402,9 @@ div.title {
 }
 
 .top-bar {
-    margin-top: 0px;
+    margin-top: 0;
     padding: 10px 0;
-    background: #191919;
-    border-bottom: 1px solid #222;
+    background: #222;
     line-height: 28px;
 }
 
@@ -503,7 +501,7 @@ input.search-form:hover {
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
-    background: #151515;
+    border-bottom: 1px solid #222;
     padding: 15px 0;
     padding-bottom: 0;
 }
@@ -521,7 +519,7 @@ input.search-form:hover {
     display: inline-block;
     font-weight: 300;
     border: none;
-    background-color: #151515;
+    background-color: transparent;
 }
 
 .link-log:hover {
@@ -569,10 +567,11 @@ input.search-form:hover {
 .navbar-inverse .navbar-nav>.open>a:focus {
     background-color: #EC5538;
     color: #fff;
+    cursor: default;
 }
 
 .navbar-inverse .navbar-nav .dropdown-menu {
-    background-color: rgba(0, 0, 0, .85);
+    background-color: #222;
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125);
     border: 0;
@@ -1397,8 +1396,8 @@ a.accordion-toggle i {
     margin: 0 0 25px;
 }
 
-#team-area{
-    background-color: #FAFAFA;
+section.teachers {
+    margin-top: 30px;
 }
 
 .single-team img{

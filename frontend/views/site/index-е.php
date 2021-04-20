@@ -6,8 +6,7 @@ use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use frontend\assets\MyAsset;
 use miloschuman\highcharts\Highcharts;
-//MyAsset::register($this);
-//AppAsset::register($this);
+
 $this->title = 'Головна';
 ?>
 <?php $this->beginPage() ?>

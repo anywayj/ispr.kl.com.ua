@@ -11,9 +11,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
-MyAsset::register($this);
 AppAsset::register($this);
-
 
 ?>
 <?php $this->beginPage() ?>

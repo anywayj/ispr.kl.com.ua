@@ -1,18 +1,18 @@
 <div class="login-form">
     <div class="container">
-        <section id="team-area">
+        <section class="teachers">
             <div class="container">
-                <div class="center fadeInDown">
-                    <h2>Викладачі кафедри IСПР</h2>
-                    <p class="lead">Кафедра інтелектуальних систем прийняття рішень</p>
-                </div>
                 <div class="row">
+                    <div class="center fadeInDown">
+                        <h2>Викладачі кафедри IСПР</h2>
+                        <p class="lead">Кафедра інтелектуальних систем прийняття рішень</p>
+                    </div>
                     <?php foreach ($teachers as $k) { ?>
                         <div class="col-md-4 col-sm-6 single-team">
                             <div class="inner">
                                 <div class="team-img">
                                     <?php if ($k->image) { ?>
-                                        <img src="/teachers/<?= $k->image ?>" width="360px" height="360px" alt="фото"/>
+                                        <img src="/teachers/<?= $k->image ?>" width="360px" height="360px" alt="Викладач"/>
                                     <?php } else { ?>
                                         <img src="/teachers/no-image.png" alt="но-фото"/>
                                     <?php } ?>

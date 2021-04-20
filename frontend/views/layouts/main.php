@@ -20,8 +20,8 @@ use common\widgets\LoginWidget;
 use common\widgets\SignupWidget;
 use frontend\widgets\LoginFormWidget;
 
-MyAsset::register($this);
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -101,12 +101,12 @@ AppAsset::register($this);
     
     if (Yii::$app->user->isGuest) {
         $menuItems = [
-        ['label' => 'Головна', 'url' => ['/site/index']],
-        ['label' => 'Про нас', 'url' => ['/site/about']],
-        ['label' => 'Викладачі', 'url' => ['/site/teacher']],
-        ['label' => 'Студенту', 'url' => ['/site/control']],
-        //['label' => 'Вхiд', 'url' => ['/site/login'], 'options' => ['data-toggle' => 'modal', 'data-target' => '#login-modal']],
-        ['label' => 'Вхiд', 'url' => ['/site/login'], 'options' => ['data-toggle' => 'modal', 'data-target' => '#login-modal']],
+            ['label' => 'Головна', 'url' => ['/site/index']],
+            ['label' => 'Про нас', 'url' => ['/site/about']],
+            ['label' => 'Викладачі', 'url' => ['/site/teacher']],
+            ['label' => 'Студенту', 'url' => ['/site/control']],
+            //['label' => 'Вхiд', 'url' => ['/site/login'], 'options' => ['data-toggle' => 'modal', 'data-target' => '#login-modal']],
+            ['label' => 'Вхiд', 'url' => ['/site/login']],
         ];
     } else {
         if (\Yii::$app->user->can('canAdmin')) {

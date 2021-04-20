@@ -67,7 +67,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['signup','request-password-reset'],
+                        'actions' => ['signup','request-password-reset','login'],
                         'allow' => true,
                         'roles' => ['?'], 
                     ],
@@ -98,7 +98,7 @@ class SiteController extends Controller
      * @inheritdoc
      */
 
-    public function actionAjaxLogin() 
+    /*public function actionAjaxLogin()
     {
         if (Yii::$app->request->isAjax) {
             $model = new LoginForm();
@@ -110,9 +110,8 @@ class SiteController extends Controller
                     $this->asJson();
                     return $res = \yii\widgets\ActiveForm::validate($model);
          
-             //   Yii::$app->session->setFlash('error','<b>Не вірний студентський або пароль!</b><br>Перевірте дані або зареєструйтеся');
-                 //   return $this->redirect('/site/signup');
-                
+                    Yii::$app->session->setFlash('error','<b>Не вірний студентський або пароль!</b><br>Перевірте дані або зареєструйтеся');
+                    return $this->redirect('/site/signup');
                     
                 }
             }
@@ -120,7 +119,7 @@ class SiteController extends Controller
         } else {
             throw new HttpException(404 ,'Сторiнку не знайдено.');
         }
-    }
+    }*/
 
     public function actionGrants()
     {
