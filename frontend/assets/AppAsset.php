@@ -19,8 +19,8 @@ class AppAsset extends AssetBundle
         'css/owl.carousel.min.css',
         'css/icomoon.css',
         'css/test6.css',
-        'css/main66.css',
-        'css/responsive29.css',
+        'css/main.css',
+        'css/responsive.css',
         //'css/style-signup1.css',
     ];
     public $js = [
