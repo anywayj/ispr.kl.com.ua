@@ -363,36 +363,29 @@ class SiteController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {  
-    /* 
+    {
         $this->layout = 'main.php';
-        $habrablog = file_get_contents('http://www.dgma.donetsk.ua/');
-  
+        /*$habrablog = file_get_contents('http://www.dgma.donetsk.ua/');
         $document = \phpQuery::newDocument($habrablog);
-  
         $hentry = $document->find('div.w_50');
-
         
         $client = new Client();
         // отправляем запрос к странице Дгма
         $res = $client->request('GET', 'http://www.dgma.donetsk.ua/');
-   
         // получаем данные между открывающим и закрывающим тегами body
         $body = $res->getBody();
-
-
 
         // подключаем phpQuery
         $document = \phpQuery::newDocumentHTML($body);
         //Смотрим html страницы ДГМА, определяем внешний класс списка и считываем его командой find
          
         $news1 = $document->find(".news_c, style"); 
-        $news2 = $document->find(".adv_c, style"); 
+        $news2 = $document->find(".adv_c, style"); */
 
         $pagination_blogs = new Pagination([
             'defaultPageSize' => 3,
             'totalCount' => Blog::find()->count(),
-        ]);*/
+        ]);
 
         $blogs = Blog::find()->where(['status_id' => '1'])->orderBy('id')
             ->offset($pagination_blogs->offset)
@@ -414,11 +407,11 @@ class SiteController extends Controller
             'blogs' => $blogs,
             'pagination_blogs' => $pagination_blogs,
             'pagination_news' => $pagination_news,
-            'body' => $body,
+            /*'body' => $body,
             'news1' => $news1,
-            'news2' => $news2,
-            'news' => $news,
             'hentry' => $hentry,
+            'news2' => $news2,*/
+            'news' => $news,
             'news_gallery' => $news_gallery,
         ]); 
     }
@@ -1409,21 +1402,14 @@ AND ((Fixation_by_teacher.Start_date)<=CVDate('01/'+'09/'+[p])))
     public function actionTeacher()
     {
         $this->layout = 'main.php';
-        //$teachers = Teachers::find()->all();
-        $teachers1 =  "SELECT * FROM (Teachers 
-        LEFT JOIN Fixation_teacher_to_cathedra ON Teachers.Teacher_id = Fixation_teacher_to_cathedra.Teacher_id)
-    /*LEFT JOIN Fixation_by_rank_teacher ON Ranks.Rank_id = Fixation_by_rank_teacher.Rank_id) */
-        WHERE Fixation_teacher_to_cathedra.Actuality = true
-    ";
-       /*
-        $teachers = Teachers::find()
-        ->select(['Teacher_FIO'])
-        ->from('Teachers')
-        ->where(['Teacher_name' => 'Александр'])
-        ->limit(2)
-        ->all(); */
+        $teachersSql = "SELECT * FROM Teachers t
+            JOIN Fixation_teacher_to_cathedra ftc ON t.Teacher_id = ftc.Teacher_id
+            JOIN Fixation_by_rank_teacher frt ON t.Teacher_id = frt.Teacher_id
+            JOIN Ranks r ON r.Rank_id = frt.Rank_id
+            WHERE ftc.Actuality = true
+        ";
 
-        $teachers = Teachers::findBySql($teachers1)->all();
+        $teachers = Teachers::findBySql($teachersSql)->all();
         return $this->render('teacher', [
             'teachers' => $teachers,       
         ]);

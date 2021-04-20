@@ -52,10 +52,6 @@ class FixationByPositionTeacher extends \yii\db\ActiveRecord
         ];
     }
 
-    
-
-    
-
     public function getPos()
     {
         return $this->hasOne(Position::className(), ['Position_id' => 'Position_id']);

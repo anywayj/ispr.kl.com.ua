@@ -50,15 +50,8 @@ AppAsset::register($this);
 
 <body>
 <?php $this->beginBody() ?>
-    <?= (Yii::$app->user->isGuest ? LoginFormWidget::widget([]) : ''); ?>
 
-    <?php
-    if (\Yii::$app->user->can('canAdmin')) {
-            $u = Yii::$app->user->identity->Student_surname; 
-    } else {
-            $u = Yii::$app->user->identity->students->Student_FIO;
-    } //учителя из user , студент ФИО из студентов
-    ?>
+    <?= (Yii::$app->user->isGuest ? LoginFormWidget::widget([]) : ''); ?>
 
     <?= FBFWidget::widget([]) ?>
 
@@ -116,6 +109,12 @@ AppAsset::register($this);
         ['label' => 'Вхiд', 'url' => ['/site/login'], 'options' => ['data-toggle' => 'modal', 'data-target' => '#login-modal']],
         ];
     } else {
+        if (\Yii::$app->user->can('canAdmin')) {
+            $u = Yii::$app->user->identity->Student_surname;
+        } else {
+            $u = Yii::$app->user->identity->students->Student_FIO;
+        } //учителя из user , студент ФИО из студентов
+
         $menuItems = [
         ['label' => 'Головна', 'url' => ['/site/index']],
         ['label' => 'Прогноз успішності', 'items' => [
@@ -149,13 +148,8 @@ AppAsset::register($this);
     ?>
 
     </header>
-    <!--/header-->
 
-    
-
-        <?= $content ?>  
-    
-
+    <?= $content ?>
 
     <div class="bottom">
         <footer id="footer" class="midnight-blue">
@@ -197,13 +191,6 @@ AppAsset::register($this);
             </div>
         </footer>
     </div>
-     
-
-
-
-
-    
-
 
 <?php $this->endBody() ?>
 </body>
